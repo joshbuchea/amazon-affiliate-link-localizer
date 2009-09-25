@@ -2,6 +2,8 @@
 Contributors: Pete Williams
 Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, earn money, revenue
 Tested up to: 2.8.4
+Requires at least  2.0
+Stable tag: trunk
 
 This plugin changes any Amazon links on your site to use your affiliate ID. It also changes the link to point to the user's local Amazon store.
 
