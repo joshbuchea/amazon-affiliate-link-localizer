@@ -1,6 +1,6 @@
 === Amazon Affiliate Link Localizer ===
 Contributors: Pete Williams
-Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, earn money, revenue
+Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 2.8.4
 Requires at least:  2.0
 Stable tag: trunk
@@ -15,6 +15,8 @@ So if you're visitor is visiting form the UK they'll get a link to Amazon.co.uk,
 
 All you have to do is provide all your affiliate IDs.
 
+It doesn't matter if the link is in your post, in your template or anywhere else on your page - it'll be converted automatically.
+
 == Non-Wordpress version ==
 If you want to achieve the same result on a non-Wordpress site, you can simply install the [JavaScript version](http://petewilliams.info/blog/2009/07/javascript-amazon-associate-link-localiser)
 
@@ -28,15 +30,3 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 
 = 1.0 =
 * Initial release
-
-= 1.0.1 =
-* Changes to readme.txt
-
-= 1.0.2 =
-* Changes to readme.txt
-
-= 1.0.3 =
-* Changes to readme.txt
-
-= 1.0.4 =
-* Changes to readme.txt
