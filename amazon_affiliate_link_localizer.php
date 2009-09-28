@@ -45,7 +45,7 @@ function amzn_admin_menu() {
  * OPTIONS page
  */
 function amzn_admin_options() {
-	
+
 	echo "
 	<style type=\"text/css\">
 		.confirm {
@@ -54,7 +54,7 @@ function amzn_admin_options() {
 		}
 	</style>
 	<h2>Amazon Affiliate Link Localizer</h2>";
-	
+
 	if ( $_POST['_wpnonce'] ) {
 			update_option( 'amzn_com', $_POST['amzn_com'] );
 			update_option( 'amzn_co_uk', $_POST['amzn_co_uk'] );
@@ -62,10 +62,10 @@ function amzn_admin_options() {
 			update_option( 'amzn_fr', $_POST['amzn_fr'] );
 			update_option( 'amzn_ca', $_POST['amzn_ca'] );
 			update_option( 'amzn_jp', $_POST['amzn_jp'] );
-		
+
 			echo "<p class=\"confirm\">Affiliate IDs updated</p>";
 	}
-	
+
 	echo "
 	<div class=\"wrap\">
 		<form name=\"form1\" method=\"post\" action=\"" . str_replace( '%7E', '~', $_SERVER['REQUEST_URI']) . "\">
@@ -93,28 +93,27 @@ function amzn_admin_options() {
 					<td><input type=\"text\" name=\"amzn_jp\" value=\"" . get_option('amzn_jp') . "\" /></td>
 				</tr>
 			</table>
-	
+
 			<p class=\"submit\">
 			<input type=\"submit\" name=\"Submit\" value=\"Update Options\" />
 			</p>
-	
+
 		</div>
 	</form>
-	
+
 	<p>Plugin by <a href=\"http://petewilliams.info\">Pete Williams</a> - <a href=\"http://twitter.com/PeteWilliams\">Follow me on twitter</a>";
 
-	
+
 }
 
 /**
  * generate required JAVASCRIPT
  */
 function amzn_add_js() {
-	
+
 	// does not use wp_enqueue_script because we need to ensure linked scripts go above the embedded one
 	echo "
 	<script type=\"text/javascript\" src=\"http://www.google.com/jsapi\"></script>
-	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon_affiliate_link_localizer/js/amazon_linker.min.js\"></script>
 	<script type=\"text/javascript\">
 		var arrAffiliates = {
 			'com'   : '" . get_option( 'amzn_com' ) . "',
@@ -124,6 +123,7 @@ function amzn_add_js() {
 			'ca'	: '" . get_option( 'amzn_ca' ) . "',
 			'jp'	: '" . get_option( 'amzn_jp' ) . "'
 		};
-	</script>";
+	</script>
+	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js\"></script>";
 
 }
