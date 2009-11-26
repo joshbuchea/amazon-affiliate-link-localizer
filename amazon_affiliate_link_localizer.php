@@ -123,6 +123,7 @@ function amzn_add_js() {
 			'ca'	: '" . get_option( 'amzn_ca' ) . "',
 			'jp'	: '" . get_option( 'amzn_jp' ) . "'
 		};
+		var strUrlAjax = '".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/ajax.php';
 	</script>
 	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js\"></script>";
 
