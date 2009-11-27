@@ -3,7 +3,7 @@
 Plugin Name: Amazon Affiliate Link Localizer
 Plugin URI: http://petewilliams.info/blog/2009/09/amazon-affiliate-link-localizer-wordpress-plugin
 Description: This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. Visit <a href="options-general.php?page=amazon_affiliate_link_localiser">the settings page</a> to enter your Amazon Associate IDs.
-Version: 1.2
+Version: 1.3
 Author: Pete Williams
 Author URI: http://petewilliams.info
 */
