@@ -11,7 +11,7 @@ This plugin changes any Amazon links on your site to use your affiliate ID. It a
 == Description ==
 This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. 
 
-So if you're visitor is visiting form the UK they'll get a link to Amazon.co.uk, if they're visiting from the US they'll get a link to the same product on Amazon.com.
+So if your visitor is visiting from the UK they'll get a link to Amazon.co.uk, if they're visiting from the US they'll get a link to the same product on Amazon.com.
 
 All you have to do is provide all your affiliate IDs.
 
