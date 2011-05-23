@@ -5,29 +5,59 @@
  * checks if the proposed link is valid
  *
  * @todo - use amazon api to make check - but not for wordpress version as requires api key...
- * @todo - test, test, test!
  * @todo - make it work on widgets - do it on iframes' src?
- * @todo - for wordpress version, should be able to host PHP file locally and do a traditional ajax call
  */
 
 header("Content-type: application/javascript");
 
-// get URL
-$strTld 		= $_REQUEST['strTld'];
-$strAffiliateId = $_REQUEST['strAffiliateId'];
-$strLinks		= $_REQUEST['strLinks'];
-$arrLinks		= explode( '|', $strLinks );
+switch ( $_REQUEST['strAction'] ) {
+	case 'search':
+		searchLink();
+		break;
+	default:
+		checkLinks();
+		break;
+}
 
-foreach ( $arrLinks as $strAsin ) {
+function checkLinks() {
 
-	$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin/$strAffiliateId";
+	// get URL
+	$strTld 		= $_REQUEST['strTld'];
+	$strAffiliateId = $_REQUEST['strAffiliateId'];
+	$strLinks		= $_REQUEST['strLinks'];
+	$arrLinks		= explode( '|', $strLinks );
 
-	$arrHeaders = get_headers($strLink, 1);
+	foreach ( $arrLinks as $strAsin ) {
 
-	if ( strpos( $arrHeaders[0], '404' ) ) {
-		echo "arrLinksToCheck[ '$strAsin' ].affiliateLink();\n";
-	} else {
-		echo "arrLinksToCheck[ '$strAsin' ].localiseLink();\n";
+		$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin/$strAffiliateId";
+
+		$arrHeaders = get_headers($strLink, 1);
+
+		// if not found, then search for it
+		if ( strpos( $arrHeaders[0], '404' ) ) {
+			echo "arrLinksToCheck[ '$strAsin' ].searchLink();\n";
+		} else {
+			echo "arrLinksToCheck[ '$strAsin' ].localiseLink();\n";
+		}
+
 	}
+}
 
+function searchLink() {
+/*
+	$strHtml = '';
+	$intStart = -1;
+
+	// get item names
+	while ( !strpos( $strHtml, '<title' ) ) {
+		
+		$strHtml .= file_get_contents( $_REQUEST['strLink'], false, null, $intStart, $intStart+10000 );
+		
+echo $strHtml;
+		$intStart+=10000;
+
+	}
+*/
+		$strHtml .= file_get_contents( $_REQUEST['strLink'], false, null, -1, 100000 );
+echo $strHtml;
 }

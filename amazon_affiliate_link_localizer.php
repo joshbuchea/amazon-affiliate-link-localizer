@@ -30,6 +30,8 @@ add_option( 'amzn_de' );
 add_option( 'amzn_fr' );
 add_option( 'amzn_ca' );
 add_option( 'amzn_jp' );
+add_option( 'amzn_it' );
+add_option( 'amzn_cn' );
 
 add_action( 'admin_menu', 'amzn_admin_menu');
 add_action( 'wp_head', 'amzn_add_js' );
@@ -62,6 +64,8 @@ function amzn_admin_options() {
 			update_option( 'amzn_fr', $_POST['amzn_fr'] );
 			update_option( 'amzn_ca', $_POST['amzn_ca'] );
 			update_option( 'amzn_jp', $_POST['amzn_jp'] );
+			update_option( 'amzn_it', $_POST['amzn_it'] );
+			update_option( 'amzn_cn', $_POST['amzn_cn'] );
 
 			echo "<p class=\"confirm\">Affiliate IDs updated</p>";
 	}
@@ -77,20 +81,33 @@ function amzn_admin_options() {
 					<th scope=\"row\">Amazon.com ID</th>
 					<td><input type=\"text\" name=\"amzn_com\" value=\"" . get_option('amzn_com') . "\" /></td>
 				</tr>
+				<tr>
 					<th scope=\"row\">Amazon.co.uk ID</th>
 					<td><input type=\"text\" name=\"amzn_co_uk\" value=\"" . get_option('amzn_co_uk') . "\" /></td>
 				</tr>
+				<tr>
 					<th scope=\"row\">Amazon.de ID</th>
 					<td><input type=\"text\" name=\"amzn_de\" value=\"" . get_option('amzn_de') . "\" /></td>
 				</tr>
+				<tr>
 					<th scope=\"row\">Amazon.fr ID</th>
 					<td><input type=\"text\" name=\"amzn_fr\" value=\"" . get_option('amzn_fr') . "\" /></td>
 				</tr>
+				<tr>
 					<th scope=\"row\">Amazon.ca ID</th>
 					<td><input type=\"text\" name=\"amzn_ca\" value=\"" . get_option('amzn_ca') . "\" /></td>
 				</tr>
-					<th scope=\"row\">Amazon.jp ID</th>
+				<tr>
+					<th scope=\"row\">Amazon.co.jp ID</th>
 					<td><input type=\"text\" name=\"amzn_jp\" value=\"" . get_option('amzn_jp') . "\" /></td>
+				</tr>
+				<tr>
+					<th scope=\"row\">Amazon.it ID</th>
+					<td><input type=\"text\" name=\"amzn_it\" value=\"" . get_option('amzn_it') . "\" /></td>
+				</tr>
+				<tr>
+					<th scope=\"row\">Amazon.cn ID</th>
+					<td><input type=\"text\" name=\"amzn_cn\" value=\"" . get_option('amzn_cn') . "\" /></td>
 				</tr>
 			</table>
 
@@ -101,7 +118,9 @@ function amzn_admin_options() {
 		</div>
 	</form>
 
-	<p>Plugin by <a href=\"http://petewilliams.info\">Pete Williams</a> - <a href=\"http://twitter.com/PeteWilliams\">Follow me on twitter</a>";
+	<p>Plugin by <a href=\"http://petewilliams.info\">Pete Williams</a> - <a href=\"http://twitter.com/PeteWilliams\">Follow me on twitter</a></p>
+
+	<p>If you found this plugin useful, please consider <a href=\"http://petewilliams.info/donate\">donating just $1</a> so I can justify maintaining it!</p>";
 
 
 }
@@ -121,7 +140,10 @@ function amzn_add_js() {
 			'de'	: '" . get_option( 'amzn_de' ) . "',
 			'fr'	: '" . get_option( 'amzn_fr' ) . "',
 			'ca'	: '" . get_option( 'amzn_ca' ) . "',
-			'jp'	: '" . get_option( 'amzn_jp' ) . "'
+			'co.jp'	: '" . get_option( 'amzn_jp' ) . "',
+			'jp'	: '" . get_option( 'amzn_jp' ) . "',
+			'it'	: '" . get_option( 'amzn_it' ) . "',
+			'cn'	: '" . get_option( 'amzn_cn' ) . "'
 		};
 		var strUrlAjax = '".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/ajax.php';
 	</script>
