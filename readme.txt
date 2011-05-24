@@ -6,7 +6,7 @@ Requires at least:  2.0
 Stable tag: 1.4
 Donate link: http://petewilliams.info/donate
 
-This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country.
+This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
 
 == Description ==
 This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. 
