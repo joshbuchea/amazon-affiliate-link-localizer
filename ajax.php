@@ -50,14 +50,22 @@ function searchLink() {
 
 	// get item names
 	while ( !strpos( $strHtml, '<title' ) ) {
-		
+
 		$strHtml .= file_get_contents( $_REQUEST['strLink'], false, null, $intStart, $intStart+10000 );
-		
+
 echo $strHtml;
 		$intStart+=10000;
 
 	}
 */
-		$strHtml .= file_get_contents( $_REQUEST['strLink'], false, null, -1, 100000 );
-echo $strHtml;
+		$strHtml = file_get_contents( $_REQUEST['strLink'], false, null, -1, 100000 );
+
+		$strPattern = '/canonical" href="http:\/\/(.*)\/(.*)\/dp\/([A-Z0-9]{10})/';
+
+
+		preg_match( $strPattern, $strHtml, $arrMatches );
+		$strTitle = str_replace(  '-', '%20', $arrMatches[2] );
+
+		echo "arrLinksToCheck[ '{$arrMatches[3]}' ].writeSearchLink( '$strTitle' );\n";
+
 }
