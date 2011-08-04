@@ -1,7 +1,7 @@
 === Amazon Affiliate Link Localizer ===
 Contributors: Pete Williams
 Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
-Tested up to: 3.1.3
+Tested up to: 3.2.1
 Requires at least:  2.0
 Stable tag: 1.5
 Donate link: http://petewilliams.info/donate
