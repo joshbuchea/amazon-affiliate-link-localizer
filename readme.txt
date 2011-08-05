@@ -63,6 +63,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.5 =
 Increase your conversion rate with the latest version. Support for new Amazon sites added. It also now searches by title for any items not found with the same product ID.
 
+= 1.5.1 = 
+Bug fix: upgrade immediately to increase conversions.
+
 == Frequently Asked Questions ==
 
 = I've installed the plugin, but the links aren't changing =
