@@ -72,7 +72,7 @@ Bug fix: upgrade immediately to increase conversions.
 
 To ensure it doesn't slow your site down the script waits until everything else is loaded before running. Make sure the page is fully loaded before checking your links.
 
-= Why do my links go to a search result page, not straight to the product
+= Why do my links go to a search result page, not straight to the product =
 
 The script works by looking at product IDs. If the product exists on the local site with the same ID, then it'll link to there. If not, it will get the item's name and link to a search results page for it. This means that, for example, even though the UK and US PlayStation 3s are technically different models as they have different plugs etc the user will still get a link to a PS3.
 
@@ -88,6 +88,6 @@ I've not tried them all, so I really don't know! Give it a go, it can't do any h
 
 The script uses a Google API for determining your country from your IP address. Sometimes - not very often, probably less than 0.5% of the time - Google cannot determine your country. In this instance, the script will affiliate but not localise your links. Don't worry though, even if this happens to you, it'll be fine for 99% of your users!
 
-= My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint?
+= My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
 
 You most certainly can you kind and gracious soul! There is a PayPal donation form here and I promise to spend all proceeds on beer: http://petewilliams.info/donate
