@@ -87,3 +87,7 @@ The script uses a Google API for determining your country from your IP address. 
 = Why do my links go to a search result page, not straight to the product
 
 The script works by looking at product IDs. If the product exists on the local site with the same ID, then it'll link to there. If not, it will get the item's name and link to a search results page for it. This means that, for example, even though the UK and US PlayStation 3s are technically different models as they have different plugs etc the user will still get a link to a PS3.
+
+= My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint?
+
+You most certainly can you kind and gracious soul! There is a PayPal donation form here and I promise to spend all proceeds on beer: http://petewilliams.info/donate
