@@ -58,6 +58,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.5.1 =
 * Bug fix - the search redirects were not working properly
 
+= 1.6 =
+* Added a fallback geolocation service in case the Google API fails
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -67,7 +70,7 @@ Increase your conversion rate with the latest version. Support for new Amazon si
 Bug fix: upgrade immediately to increase conversions.
 
 = 1.6 = 
-Dramaatically improved geolocation accuracy by adding a secondary geolocation service as a fallback for when the Google geolocation API is unable to detect someone's location.
+Dramatically improved geolocation accuracy by adding a secondary geolocation service as a fallback for when the Google geolocation API is unable to detect someone's location.
 
 == Frequently Asked Questions ==
 
