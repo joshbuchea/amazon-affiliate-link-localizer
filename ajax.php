@@ -14,6 +14,9 @@ switch ( $_REQUEST['strAction'] ) {
 	case 'search':
 		searchLink();
 		break;
+	case 'version':
+		echo "1.6.1";
+		break;
 	default:
 		checkLinks();
 		break;
@@ -34,7 +37,7 @@ function checkLinks() {
 		$arrHeaders = get_headers($strLink, 1);
 
 		// if not found, then search for it
-		if ( strpos( $arrHeaders[0], '404' ) ) {
+		if ( strpos( $arrHeaders[0], '404' ) || strpos( $arrHeaders[1], '404' ) ) {
 			echo "arrLinksToCheck[ '$strAsin' ].searchLink();\n";
 		} else {
 			echo "arrLinksToCheck[ '$strAsin' ].localiseLink();\n";
@@ -44,28 +47,19 @@ function checkLinks() {
 }
 
 function searchLink() {
-/*
-	$strHtml = '';
-	$intStart = -1;
-
-	// get item names
-	while ( !strpos( $strHtml, '<title' ) ) {
-
-		$strHtml .= file_get_contents( $_REQUEST['strLink'], false, null, $intStart, $intStart+10000 );
-
-echo $strHtml;
-		$intStart+=10000;
-
-	}
-*/
 		$strHtml = file_get_contents( $_REQUEST['strLink'], false, null, -1, 100000 );
 
 		$strPattern = '/canonical" href="http:\/\/(.*)\/(.*)\/dp\/([A-Z0-9]{10})/';
 
-
 		preg_match( $strPattern, $strHtml, $arrMatches );
 		$strTitle = str_replace(  '-', '%20', $arrMatches[2] );
 
-		echo "arrLinksToCheck[ '{$arrMatches[3]}' ].writeSearchLink( '$strTitle' );\n";
+		// the canonical ASIN is sometimes different to the original one which confuses the JS, so use the one in the original link
+		$strPattern2 = '/\/([A-Z0-9]{10})/';
+		preg_match( $strPattern2 , $_REQUEST['strLink'], $arrUrlMatches );
+
+		$strAsin = is_array( $arrUrlMatches ) ? $arrUrlMatches[1] : $arrMatches[3];
+
+		echo "arrLinksToCheck[ '{$strAsin}' ].writeSearchLink( '$strTitle' );\n";
 
 }

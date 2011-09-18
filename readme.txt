@@ -3,7 +3,7 @@ Contributors: Pete Williams
 Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 3.2.1
 Requires at least:  2.0
-Stable tag: 1.6
+Stable tag: 1.6.1
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
@@ -61,6 +61,11 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.6 =
 * Added a fallback geolocation service in case the Google API fails
 
+= 1.6.1 =
+* Updated to reflect a change in how Amazon now handles 404 errors to ensure the correct link is used
+* Fixed bug where multiple links to the same page were not all changed.
+* Fixed bug for items that had a different canoconical ASIN form that used in the original link
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -71,6 +76,9 @@ Bug fix: upgrade immediately to increase conversions.
 
 = 1.6 = 
 Dramatically improved geolocation accuracy by adding a secondary geolocation service as a fallback for when the Google geolocation API is unable to detect someone's location.
+
+= 1.6.1 =
+Important updated to reflect a change in how Amazon now handles 404 errors. Update to ensure the correct link is always used.
 
 == Frequently Asked Questions ==
 
