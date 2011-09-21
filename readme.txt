@@ -98,10 +98,6 @@ Not yet. Most of the widgets work by embedding iframes into your page. The scrip
 
 I've not tried them all, so I really don't know! Give it a go, it can't do any harm. Basically it should work with any Amazon link that is in the HTML of the page. If it's embedded in an iframe. Flash or anything outside your own HTML it will not work.
 
-= The links are not changing country for me =
-
-The script uses a Google API for determining your country from your IP address. Sometimes - not very often, probably less than 0.5% of the time - Google cannot determine your country. In this instance, the script will affiliate but not localise your links. Don't worry though, even if this happens to you, it'll be fine for 99% of your users!
-
 = My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
 
 You most certainly can you kind and gracious soul! There is a PayPal donation form here and I promise to spend all proceeds on beer: http://petewilliams.info/donate
