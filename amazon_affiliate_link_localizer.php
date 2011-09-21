@@ -3,7 +3,7 @@
 Plugin Name: Amazon Affiliate Link Localizer
 Plugin URI: http://petewilliams.info/blog/2009/09/amazon-affiliate-link-localizer-wordpress-plugin
 Description: This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. Visit <a href="options-general.php?page=amazon_affiliate_link_localiser">the settings page</a> to enter your Amazon Associate IDs.
-Version: 1.6.1
+Version: 1.7
 Author: Pete Williams
 Author URI: http://petewilliams.info
 */
@@ -32,6 +32,7 @@ add_option( 'amzn_ca' );
 add_option( 'amzn_jp' );
 add_option( 'amzn_it' );
 add_option( 'amzn_cn' );
+add_option( 'amzn_es' );
 
 add_action( 'admin_menu', 'amzn_admin_menu');
 add_action( 'wp_head', 'amzn_add_js' );
@@ -66,6 +67,7 @@ function amzn_admin_options() {
 			update_option( 'amzn_jp', $_POST['amzn_jp'] );
 			update_option( 'amzn_it', $_POST['amzn_it'] );
 			update_option( 'amzn_cn', $_POST['amzn_cn'] );
+			update_option( 'amzn_es', $_POST['amzn_es'] );
 
 			echo "<p class=\"confirm\">Affiliate IDs updated</p>";
 	}
@@ -109,6 +111,10 @@ function amzn_admin_options() {
 					<th scope=\"row\">Amazon.cn ID</th>
 					<td><input type=\"text\" name=\"amzn_cn\" value=\"" . get_option('amzn_cn') . "\" /></td>
 				</tr>
+				<tr>
+					<th scope=\"row\">Amazon.es ID</th>
+					<td><input type=\"text\" name=\"amzn_es\" value=\"" . get_option('amzn_es') . "\" /></td>
+				</tr>
 			</table>
 
 			<p class=\"submit\">
@@ -143,7 +149,8 @@ function amzn_add_js() {
 			'co.jp'	: '" . get_option( 'amzn_jp' ) . "',
 			'jp'	: '" . get_option( 'amzn_jp' ) . "',
 			'it'	: '" . get_option( 'amzn_it' ) . "',
-			'cn'	: '" . get_option( 'amzn_cn' ) . "'
+			'cn'	: '" . get_option( 'amzn_cn' ) . "',
+			'es'	: '" . get_option( 'amzn_es' ) . "'
 		};
 		var strUrlAjax = '".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/ajax.php';
 	</script>
