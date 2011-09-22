@@ -4,8 +4,8 @@
  * AMAZON LINK LOCALISER ajax response page
  * checks if the proposed link is valid
  *
- * @todo - use amazon api to make check - but not for wordpress version as requires api key...
- * @todo - make it work on widgets - do it on iframes' src?
+ * @author Pete Williams
+ * @url http://petewilliams.info
  */
 
 header("Content-type: application/javascript");
