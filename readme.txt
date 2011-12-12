@@ -3,7 +3,7 @@ Contributors: Pete Williams
 Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 3.2.1
 Requires at least:  2.0
-Stable tag: 1.7
+Stable tag: 1.7.1
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
