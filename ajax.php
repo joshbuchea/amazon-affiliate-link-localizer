@@ -9,13 +9,14 @@
  */
 
 header("Content-type: application/javascript");
+header("HTTP/1.1 200 OK");
 
 switch ( $_REQUEST['strAction'] ) {
 	case 'search':
 		searchLink();
 		break;
 	case 'version':
-		echo "1.7";
+		echo "1.7.1";
 		break;
 	default:
 		checkLinks();
@@ -47,7 +48,7 @@ function checkLinks() {
 }
 
 function searchLink() {
-		$strHtml = file_get_contents( $_REQUEST['strLink'], false, null, -1, 100000 );
+		$strHtml = file_get_contents( 'http://' . $_REQUEST['strLink'], false, null, -1, 100000 );
 
 		$strPattern = '/canonical" href="http:\/\/(.*)\/(.*)\/dp\/([A-Z0-9]{10})/';
 

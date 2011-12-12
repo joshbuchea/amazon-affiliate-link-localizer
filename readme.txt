@@ -69,6 +69,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.7 =
 * Added support for new Spanish Amazon.es site
 
+= 1.7.1 =
+Added workaround for sites with poorly formed URL rewrites
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -85,6 +88,9 @@ Important updated to reflect a change in how Amazon now handles 404 errors. Upda
 
 = 1.7 =
 Added support for new Spanish Amazon.es site
+
+= 1.7.1 =
+Added workaround for sites with poorly formed URL rewrites which prevents some links from changing
 
 == Frequently Asked Questions ==
 
