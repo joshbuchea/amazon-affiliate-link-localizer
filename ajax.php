@@ -16,7 +16,7 @@ switch ( $_REQUEST['strAction'] ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.7.2";
+		echo "1.7.3";
 		break;
 	default:
 		checkLinks();
@@ -33,7 +33,7 @@ function checkLinks() {
 
 	foreach ( $arrLinks as $strAsin ) {
 
-		$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin/$strAffiliateId";
+		$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin";
 
 		$arrHeaders = get_headers($strLink, 1);
 
