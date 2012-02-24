@@ -20,7 +20,7 @@ It doesn't matter if the link is in your post, in your template or anywhere else
 If you find this plugin helpful and it's increasing your sales. please consider [donating just $1](http://petewilliams.info/donate) or more to say thanks for the many, many hours I've spent on it. I'd really appreciate it!
 
 Disclosure:
-If you don't have an affiliate account with one of the Amazon counties and leave its setting blank, the script will use mine. It'll never overwrite your affiliate IDs though, so don't worry - you'll never lose any revenue.
+If you don't have an affiliate account with one of the Amazon countries and leave its setting blank, the script will use mine. It'll never overwrite your affiliate IDs though, so don't worry - you'll never lose any revenue.
 
 == Non-Wordpress version ==
 
