@@ -16,7 +16,7 @@ switch ( $_REQUEST['strAction'] ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.7.3";
+		echo "1.7.4";
 		break;
 	default:
 		checkLinks();

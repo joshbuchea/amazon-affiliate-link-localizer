@@ -1,9 +1,9 @@
 === Amazon Affiliate Link Localizer ===
 Contributors: Pete Williams
 Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
-Tested up to: 3.3.1
+Tested up to: 3.3.2
 Requires at least:  2.0
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
@@ -80,6 +80,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 * Increased click report accuracy by stripping affiliate tags from AJAX product checks
 * Redirected Swiss users to Amazon Germany
 
+= 1.7.4 =
+Fixed a bug which was incorrectly redirecting wishlist links.
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -106,6 +109,9 @@ Fixed bug that meant that some local sites weren't being redirected to if an ID 
 = 1.7.3 =
 Various minor improvements and fixes. Upgrade now to increase your conversion rates.
 
+= 1.7.4 =
+Fixed a bug which was incorrectly redirecting wishlist links.
+
 == Frequently Asked Questions ==
 
 = I've installed the plugin, but the links aren't changing =
@@ -123,6 +129,9 @@ Not yet. Most of the widgets work by embedding iframes into your page. The scrip
 = Does it work with Wordpress plugin x? =
 
 I've not tried them all, so I really don't know! Give it a go, it can't do any harm. Basically it should work with any Amazon link that is in the HTML of the page. If it's embedded in an iframe. Flash or anything outside your own HTML it will not work.
+
+= Are there any links that don't get localized? = 
+Just Wishlist links as there is no way this can be - a wishlist only exists on the site you built it on.
 
 = My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
 
