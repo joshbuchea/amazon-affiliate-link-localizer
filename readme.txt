@@ -52,8 +52,8 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 
 = 1.5 =
 * If you local Amazon store does not sell the product with the same product ID, the script now redirects to a search results page searching for the item's title
-* Prevented JavaScript error from occuring if Google's API fails or cannot provide a location
-* Added support for Italian and and Chinese Amazon sites
+* Prevented JavaScript error from occurring if Google's API fails or cannot provide a location
+* Added support for Italian and Chinese Amazon sites
 
 = 1.5.1 =
 * Bug fix - the search redirects were not working properly
@@ -81,7 +81,8 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 * Redirected Swiss users to Amazon Germany
 
 = 1.7.4 =
-Fixed a bug which was incorrectly redirecting wishlist links.
+* Fixed a bug which was incorrectly redirecting wishlist links.
+* Fixed a bug which was incorrectly redirecting local.amazon.com links.
 
 == Upgrade Notice ==
 
@@ -110,7 +111,7 @@ Fixed bug that meant that some local sites weren't being redirected to if an ID 
 Various minor improvements and fixes. Upgrade now to increase your conversion rates.
 
 = 1.7.4 =
-Fixed a bug which was incorrectly redirecting wishlist links.
+Minor bug fixes to fix some more obscure links
 
 == Frequently Asked Questions ==
 
@@ -131,7 +132,7 @@ Not yet. Most of the widgets work by embedding iframes into your page. The scrip
 I've not tried them all, so I really don't know! Give it a go, it can't do any harm. Basically it should work with any Amazon link that is in the HTML of the page. If it's embedded in an iframe, Flash or anything outside your own HTML it will not work.
 
 = Are there any links that don't get localized? = 
-Just Wishlist links as there is no way this can be - a wishlist only exists on the site you built it on.
+Wishlist links aren't localised as a wishlist only exists on the site you built it on. Links to Amazon's Groupon clone (AmazonLocal) are also not affiliated because there is only a US site and it is not covered by the affiliate scheme.
 
 = My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
 
