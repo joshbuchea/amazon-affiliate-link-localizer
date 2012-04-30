@@ -1,6 +1,6 @@
 === Amazon Affiliate Link Localizer ===
 Contributors: Pete Williams
-Tags: amazon, links, javascript, associate, affiliate, associates, affiliate, amazon, ecommerce, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
+Tags: amazon, links, affiliate, associates, affiliate, amazon, affiliate marketing, ecommerce, javascript, associate, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 3.3.2
 Requires at least:  2.0
 Stable tag: 1.7.4
@@ -128,7 +128,7 @@ Not yet. Most of the widgets work by embedding iframes into your page. The scrip
 
 = Does it work with Wordpress plugin x? =
 
-I've not tried them all, so I really don't know! Give it a go, it can't do any harm. Basically it should work with any Amazon link that is in the HTML of the page. If it's embedded in an iframe. Flash or anything outside your own HTML it will not work.
+I've not tried them all, so I really don't know! Give it a go, it can't do any harm. Basically it should work with any Amazon link that is in the HTML of the page. If it's embedded in an iframe, Flash or anything outside your own HTML it will not work.
 
 = Are there any links that don't get localized? = 
 Just Wishlist links as there is no way this can be - a wishlist only exists on the site you built it on.
