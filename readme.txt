@@ -115,6 +115,9 @@ Minor bug fixes to fix some more obscure links
 
 == Frequently Asked Questions ==
 
+= My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
+You most certainly can you kind and gracious soul! There is a PayPal donation form here and I promise to spend all proceeds on beer: http://petewilliams.info/donate
+
 = I've installed the plugin, but the links aren't changing =
 
 To ensure it doesn't slow your site down the script waits until everything else is loaded before running. Make sure the page is fully loaded before checking your links.
@@ -133,7 +136,3 @@ I've not tried them all, so I really don't know! Give it a go, it can't do any h
 
 = Are there any links that don't get localized? = 
 Wishlist links aren't localised as a wishlist only exists on the site you built it on. Links to Amazon's Groupon clone (AmazonLocal) are also not affiliated because there is only a US site and it is not covered by the affiliate scheme.
-
-= My, what a delightful plugin, and it's free? Wow, you're too kind - can I buy you a pint? =
-
-You most certainly can you kind and gracious soul! There is a PayPal donation form here and I promise to spend all proceeds on beer: http://petewilliams.info/donate
