@@ -16,7 +16,7 @@ switch ( $_REQUEST['strAction'] ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.7.4";
+		echo "1.8";
 		break;
 	default:
 		checkLinks();
@@ -26,32 +26,56 @@ switch ( $_REQUEST['strAction'] ) {
 function checkLinks() {
 
 	// get URL
-	$strTld 		= $_REQUEST['strTld'];
-	$strAffiliateId = $_REQUEST['strAffiliateId'];
+	$strAffiliateId 	= $_REQUEST['strAffiliateId'];
 	$strLinks		= $_REQUEST['strLinks'];
-	$arrLinks		= explode( '|', $strLinks );
+	if ( $strLinks ) {
+		$arrLinks		= explode( '|', $strLinks );
+	}
+	$strShortLinks		= $_REQUEST['strShortLinks'];
+	if ( $strShortLinks ) {
+		$arrShortLinks		= explode( '|', $strShortLinks );
+	}
 
-	foreach ( $arrLinks as $strAsin ) {
-
-		$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin";
-
-		$arrHeaders = get_headers($strLink, 1);
-
-		// if not found, then search for it
-		if ( strpos( $arrHeaders[0], '404' ) || strpos( $arrHeaders[1], '404' ) ) {
-			echo "arrLinksToCheck[ '$strAsin' ].searchLink();\n";
-		} else {
-			echo "arrLinksToCheck[ '$strAsin' ].localiseLink();\n";
+	// for full links, check they work
+	if ( count( $arrLinks ) ) {
+		foreach ( $arrLinks as $strAsin ) {
+			checkAsin($strAsin, 0);
 		}
+	}
 
+	// for short links, get the full links
+	if ( count( $strShortLinks ) ) {
+		foreach ( $arrShortLinks as $strShortCode ) {
+
+			// get full URL
+			$arrHeaders = get_headers('http://amzn.to/' . $strShortCode, 1);
+			$strLink = stripAffiliateId( $arrHeaders['Location'] );
+
+			// is it a product link?
+			$strPattern = '/([A-Z0-9]{10})/';
+			preg_match($strPattern, $strLink, $arrMatches);
+
+			if (count($arrMatches) && !strpos( $strLink, '/review' ) && !strpos( $strLink, '/wishlist' ) ) {
+				// then check it's valid
+				$strAsin = $arrMatches[0];
+				checkAsin($strAsin, 1, $strShortCode, $strLink);
+			} else {
+				// else just affiliate
+				echo "arrLinksToCheck[1][ '$strShortCode' ].arrLinkObjects[0].href = '$strLink';\n";
+				echo "arrLinksToCheck[1][ '$strShortCode' ].localiseGeneralLink();\n";
+
+			}	
+		}
 	}
 }
 
 function searchLink() {
-		$strHtml = file_get_contents( 'http://' . $_REQUEST['strLink'], false, null, -1, 100000 );
+
+		$strLink = stripAffiliateId( $_REQUEST['strLink'] );
+			
+		$strHtml = file_get_contents( 'http://' . $strLink, false, null, -1, 100000 );
 
 		$strPattern = '/canonical" href="http:\/\/(.*)\/(.*)\/dp\/([A-Z0-9]{10})/';
-
 		preg_match( $strPattern, $strHtml, $arrMatches );
 		$strTitle = str_replace(  '-', '%20', $arrMatches[2] );
 
@@ -61,6 +85,61 @@ function searchLink() {
 
 		$strAsin = is_array( $arrUrlMatches ) ? $arrUrlMatches[1] : $arrMatches[3];
 
-		echo "arrLinksToCheck[ '{$strAsin}' ].writeSearchLink( '$strTitle' );\n";
+		// is this from a shortlink?
+		$intLinkType = 0;
+		$strLinkCode = $strAsin;
+		if ($_REQUEST['strShortCode']) {
+			$intLinkType = 1;
+			$strLinkCode = $_REQUEST['strShortCode'];
+		}
+		echo "arrLinksToCheck[$intLinkType]['$strLinkCode' ].writeSearchLink( '$strTitle' );\n";
 
+}
+
+function checkAsin($strAsin, $intType, $strShortCode = null, $strLinkOriginal = null) {
+
+		$strTld = $_REQUEST['strTld'];
+		$strLink = "http://www.amazon.$strTld/exec/obidos/ASIN/$strAsin";
+
+		$arrHeaders = get_headers($strLink, 1);
+		$strObjRef = $strAsin;
+
+		if ($strShortCode) {
+			$strObjRef = $strShortCode;
+			echo "arrLinksToCheck[$intType][ '$strObjRef' ].strAsin = '$strAsin';\n";
+			echo "arrLinksToCheck[1][ '$strShortCode' ].arrLinkObjects[0].href = '$strLinkOriginal';\n";
+		}
+
+		// if not found, then search for it
+		if ( strpos( $arrHeaders[0], '404' ) || strpos( $arrHeaders[1], '404' ) ) {
+			echo "arrLinksToCheck[$intType][ '$strObjRef' ].searchLink(" . ($strShortCode ? "'$strShortCode'" : '') . ");\n";
+		} else {
+			echo "arrLinksToCheck[$intType][ '$strObjRef' ].localiseLink();\n";
+		}
+}
+
+// strip the affiliate ID before checking, don't want to register false impressions which would decrease the reported conversion rate
+function stripAffiliateId( $strLink ) {
+
+	// Strip out tag=… affiliate tags (because I can't get regex to work!)
+	$intPreTag = strpos( $strLink, "tag=" );
+	if ( $intPreTag ) {
+		$intPreTag += 4;
+		$intPostTag = strpos( $strLink, "&", $intPreTag );
+
+		if ( !$intPostTag ){
+			$intPostTag = strlen( $strLink );
+		}
+	
+		$strLink = str_replace( 'tag=' . substr( $strLink, $intPreTag, $intPostTag - $intPreTag ), '', $strLink );
+	} else {
+
+		// Strip out affiliate IDs from direct ASIN links
+		$strPatternTag = "/(asin|dp|product)\/[A-Z0-9]{10}\/([^\/^\?]*)(\?.*|\/.*|$)/i";
+		preg_match( $strPatternTag, $strLink, $arrMatchesTag );
+		if ( count( $arrMatchesTag ) && $arrMatchesTag[2] ) {
+			$strLink = str_replace( '/'.$arrMatchesTag[2], '', $strLink );
+		}
+	}
+	return $strLink;
 }
