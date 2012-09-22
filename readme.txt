@@ -3,7 +3,7 @@ Contributors: Pete Williams
 Tags: amazon, links, affiliate, associates, affiliate, amazon, affiliate marketing, ecommerce, javascript, associate, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 3.4.2
 Requires at least:  2.0
-Stable tag: 1.8
+Stable tag: 1.8.1
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
@@ -88,6 +88,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 * Added support for Amazon short links (http://amzn.to/)
 * Increased click report accuracy by stripping affiliate tags from AJAX product name lookups
 
+= 1.8.1 =
+* Fixes a bug in version 1.8
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -119,6 +122,9 @@ Minor bug fixes to fix some more obscure links
 
 = 1.8 = 
 Important update to prevent behind-the-scenes URL calls from logging against your affiliate ID. Upgrade now to increase your conversion rates.
+
+= 1.8.1 =
+Bug fix to previous version. Urgent update
 
 == Frequently Asked Questions ==
 

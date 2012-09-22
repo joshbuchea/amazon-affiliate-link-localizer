@@ -16,7 +16,7 @@ switch ( $_REQUEST['strAction'] ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.8";
+		echo "1.8.1";
 		break;
 	default:
 		checkLinks();
@@ -44,7 +44,7 @@ function checkLinks() {
 	}
 
 	// for short links, get the full links
-	if ( count( $strShortLinks ) ) {
+	if ( count( $arrShortLinks ) ) {
 		foreach ( $arrShortLinks as $strShortCode ) {
 
 			// get full URL
