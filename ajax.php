@@ -16,7 +16,7 @@ switch ( $_REQUEST['strAction'] ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.8.1";
+		echo "1.8.2";
 		break;
 	default:
 		checkLinks();
@@ -55,7 +55,7 @@ function checkLinks() {
 			$strPattern = '/([A-Z0-9]{10})/';
 			preg_match($strPattern, $strLink, $arrMatches);
 
-			if (count($arrMatches) && !strpos( $strLink, '/review' ) && !strpos( $strLink, '/wishlist' ) ) {
+			if (count($arrMatches) && !strpos( $strLink, '/review' ) && !strpos( $strLink, '/wishlist' ) && !strpos( $strLink, "bbn=" . $arrMatches[0]) ) {
 				// then check it's valid
 				$strAsin = $arrMatches[0];
 				checkAsin($strAsin, 1, $strShortCode, $strLink);

@@ -1,9 +1,9 @@
 === Amazon Affiliate Link Localizer ===
 Contributors: Pete Williams
 Tags: amazon, links, affiliate, associates, affiliate, amazon, affiliate marketing, ecommerce, javascript, associate, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
-Tested up to: 3.4.2
+Tested up to: 3.5
 Requires at least:  2.0
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
@@ -91,6 +91,9 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.8.1 =
 * Fixes a bug in version 1.8
 
+= 1.8.2 =
+* Fixed a short links bug - repeated amzn.to were only being changed the first time they appeared
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -125,6 +128,9 @@ Important update to prevent behind-the-scenes URL calls from logging against you
 
 = 1.8.1 =
 Bug fix to previous version. Urgent update
+
+= 1.8.2 =
+Minor bug fix - only effects repeated amzn.to links
 
 == Frequently Asked Questions ==
 
