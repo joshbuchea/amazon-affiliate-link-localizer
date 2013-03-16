@@ -3,7 +3,7 @@
 Plugin Name: Amazon Affiliate Link Localizer
 Plugin URI: http://petewilliams.info/blog/2009/09/amazon-affiliate-link-localizer-wordpress-plugin
 Description: This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. Visit <a href="options-general.php?page=amazon_affiliate_link_localiser">the settings page</a> to enter your Amazon Associate IDs.
-Version: 1.8.2
+Version: 1.8.3
 Author: Pete Williams
 Author URI: http://petewilliams.info
 */
@@ -35,7 +35,7 @@ add_option( 'amzn_cn' );
 add_option( 'amzn_es' );
 
 add_action( 'admin_menu', 'amzn_admin_menu');
-add_action( 'wp_head', 'amzn_add_js' );
+add_action( 'wp_footer', 'amzn_add_js' );
 
 /**
  * add MENU
@@ -59,15 +59,15 @@ function amzn_admin_options() {
 	<h2>Amazon Affiliate Link Localizer</h2>";
 
 	if ( $_POST['_wpnonce'] ) {
-			update_option( 'amzn_com', $_POST['amzn_com'] );
-			update_option( 'amzn_co_uk', $_POST['amzn_co_uk'] );
-			update_option( 'amzn_de', $_POST['amzn_de'] );
-			update_option( 'amzn_fr', $_POST['amzn_fr'] );
-			update_option( 'amzn_ca', $_POST['amzn_ca'] );
-			update_option( 'amzn_jp', $_POST['amzn_jp'] );
-			update_option( 'amzn_it', $_POST['amzn_it'] );
-			update_option( 'amzn_cn', $_POST['amzn_cn'] );
-			update_option( 'amzn_es', $_POST['amzn_es'] );
+			update_option( 'amzn_com', htmlspecialchars( $_POST['amzn_com'] ) );
+			update_option( 'amzn_co_uk', htmlspecialchars( $_POST['amzn_co_uk'] ) );
+			update_option( 'amzn_de', htmlspecialchars( $_POST['amzn_de'] ) );
+			update_option( 'amzn_fr', htmlspecialchars( $_POST['amzn_fr'] ) );
+			update_option( 'amzn_ca', htmlspecialchars( $_POST['amzn_ca'] ) );
+			update_option( 'amzn_jp', htmlspecialchars( $_POST['amzn_jp'] ) );
+			update_option( 'amzn_it', htmlspecialchars( $_POST['amzn_it'] ) );
+			update_option( 'amzn_cn', htmlspecialchars( $_POST['amzn_cn'] ) );
+			update_option( 'amzn_es', htmlspecialchars( $_POST['amzn_es'] ) );
 
 			echo "<p class=\"confirm\">Affiliate IDs updated</p>";
 	}
@@ -154,6 +154,6 @@ function amzn_add_js() {
 		};
 		var strUrlAjax = '".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/ajax.php';
 	</script>
-	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js\"></script>";
+	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js?v=1.8.3\"></script>";
 
 }

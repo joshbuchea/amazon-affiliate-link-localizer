@@ -11,12 +11,14 @@
 header("Content-type: application/javascript");
 header("HTTP/1.1 200 OK");
 
-switch ( $_REQUEST['strAction'] ) {
+$strAction = isset( $_REQUEST['strAction'] ) ? $_REQUEST['strAction'] : '';
+
+switch ( $strAction ) {
 	case 'search':
 		searchLink();
 		break;
 	case 'version':
-		echo "1.8.2";
+		echo "1.8.3";
 		break;
 	default:
 		checkLinks();
@@ -27,7 +29,7 @@ function checkLinks() {
 
 	// get URL
 	$strAffiliateId 	= $_REQUEST['strAffiliateId'];
-	$strLinks		= $_REQUEST['strLinks'];
+	$strLinks			= $_REQUEST['strLinks'];
 	if ( $strLinks ) {
 		$arrLinks		= explode( '|', $strLinks );
 	}
@@ -37,7 +39,7 @@ function checkLinks() {
 	}
 
 	// for full links, check they work
-	if ( count( $arrLinks ) ) {
+	if ( isset( $arrLinks ) && count( $arrLinks ) ) {
 		foreach ( $arrLinks as $strAsin ) {
 			checkAsin($strAsin, 0);
 		}

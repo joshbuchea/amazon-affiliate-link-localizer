@@ -3,7 +3,7 @@ Contributors: Pete Williams
 Tags: amazon, links, affiliate, associates, affiliate, amazon, affiliate marketing, ecommerce, javascript, associate, money, internet marketing, earn money, revenue, widget, post, admin, plugin, posts, links, page
 Tested up to: 3.5
 Requires at least:  2.0
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 Donate link: http://petewilliams.info/donate
 
 This plugin automatically changes your Amazon links to point to your visitor's local Amazon store whilst using your affiliate ID for that country
@@ -17,7 +17,7 @@ All you have to do is provide all your affiliate IDs.
 
 It doesn't matter if the link is in your post, in your template or anywhere else on your page - it'll be converted automatically.
 
-If you find this plugin helpful and it's increasing your sales, please consider [donating just $1](http://petewilliams.info/donate) or more to say thanks for the many, many hours I've spent on it. I'd really appreciate it!
+If you find this plugin helpful and it's increasing your sales, please consider [donating just £1](http://petewilliams.info/donate) or more to say thanks for the many, many hours I've spent on it. I'd really appreciate it!
 
 Disclosure:
 If you don't have an affiliate account with one of the Amazon countries and leave its setting blank, the script will use mine. It'll never overwrite your affiliate IDs though, so don't worry - you'll never lose any revenue.
@@ -94,6 +94,11 @@ If you want to achieve the same result on a non-Wordpress site, you can simply i
 = 1.8.2 =
 * Fixed a short links bug - repeated amzn.to were only being changed the first time they appeared
 
+= 1.8.3 =
+* Performance optimisation, security tightening, code improvements
+* Added version number to javascript src to enable far-future browser caching
+* Added Jersey/Guernsey/Isle of Mann support
+
 == Upgrade Notice ==
 
 = 1.5 =
@@ -131,6 +136,9 @@ Bug fix to previous version. Urgent update
 
 = 1.8.2 =
 Minor bug fix - only effects repeated amzn.to links
+
+= 1.8.3 =
+Maintenance release. Updated recommended.
 
 == Frequently Asked Questions ==
 
