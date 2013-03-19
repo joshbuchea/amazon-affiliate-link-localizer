@@ -35,7 +35,7 @@ add_option( 'amzn_cn' );
 add_option( 'amzn_es' );
 
 add_action( 'admin_menu', 'amzn_admin_menu');
-add_action( 'wp_footer', 'amzn_add_js' );
+add_action( 'wp_head', 'amzn_add_js' );
 
 /**
  * add MENU
