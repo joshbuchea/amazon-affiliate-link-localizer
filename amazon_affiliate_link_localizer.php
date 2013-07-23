@@ -3,7 +3,7 @@
 Plugin Name: Amazon Affiliate Link Localizer
 Plugin URI: http://petewilliams.info/blog/2009/09/amazon-affiliate-link-localizer-wordpress-plugin
 Description: This plugin not only automatically changes any Amazon link on your site to use your affiliate ID, but it also changes the link to point to the user's local Amazon store. Visit <a href="options-general.php?page=amazon_affiliate_link_localiser">the settings page</a> to enter your Amazon Associate IDs.
-Version: 1.8.3
+Version: 1.9
 Author: Pete Williams
 Author URI: http://petewilliams.info
 */
@@ -33,6 +33,7 @@ add_option( 'amzn_jp' );
 add_option( 'amzn_it' );
 add_option( 'amzn_cn' );
 add_option( 'amzn_es' );
+add_option( 'amzn_in' );
 
 add_action( 'admin_menu', 'amzn_admin_menu');
 add_action( 'wp_head', 'amzn_add_js' );
@@ -68,6 +69,7 @@ function amzn_admin_options() {
 			update_option( 'amzn_it', htmlspecialchars( $_POST['amzn_it'] ) );
 			update_option( 'amzn_cn', htmlspecialchars( $_POST['amzn_cn'] ) );
 			update_option( 'amzn_es', htmlspecialchars( $_POST['amzn_es'] ) );
+			update_option( 'amzn_in', htmlspecialchars( $_POST['amzn_in'] ) );
 
 			echo "<p class=\"confirm\">Affiliate IDs updated</p>";
 	}
@@ -115,6 +117,10 @@ function amzn_admin_options() {
 					<th scope=\"row\">Amazon.es ID</th>
 					<td><input type=\"text\" name=\"amzn_es\" value=\"" . get_option('amzn_es') . "\" /></td>
 				</tr>
+				<tr>
+					<th scope=\"row\">Amazon.in ID</th>
+					<td><input type=\"text\" name=\"amzn_in\" value=\"" . get_option('amzn_in') . "\" /></td>
+				</tr>
 			</table>
 
 			<p class=\"submit\">
@@ -150,10 +156,11 @@ function amzn_add_js() {
 			'jp'	: '" . get_option( 'amzn_jp' ) . "',
 			'it'	: '" . get_option( 'amzn_it' ) . "',
 			'cn'	: '" . get_option( 'amzn_cn' ) . "',
-			'es'	: '" . get_option( 'amzn_es' ) . "'
+			'es'	: '" . get_option( 'amzn_es' ) . "',
+			'in'	: '" . get_option( 'amzn_in' ) . "'
 		};
 		var strUrlAjax = '".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/ajax.php';
 	</script>
-	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js?v=1.8.3\"></script>";
+	<script type=\"text/javascript\" src=\"".WP_PLUGIN_URL  . "/amazon-affiliate-link-localizer/js/amazon_linker.min.js?v=1.9\"></script>";
 
 }

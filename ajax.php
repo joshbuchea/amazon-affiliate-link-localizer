@@ -8,8 +8,19 @@
  * @url http://petewilliams.info
  */
 
+//turn errors off as means one problematic link will stop everything from working
+error_reporting(0);
+
 header("Content-type: application/javascript");
 header("HTTP/1.1 200 OK");
+
+if ($_REQUEST['blnDebug']) {
+	if ($_REQUEST['blnDebug'] == 1) {
+		error_reporting(E_ALL ^ E_NOTICE);
+	} else {
+		error_reporting(E_ALL);
+	}
+}
 
 $strAction = isset( $_REQUEST['strAction'] ) ? $_REQUEST['strAction'] : '';
 
@@ -18,7 +29,7 @@ switch ( $strAction ) {
 		searchLink();
 		break;
 	case 'version':
-		echo "1.8.3";
+		echo "1.9";
 		break;
 	default:
 		checkLinks();
@@ -46,7 +57,7 @@ function checkLinks() {
 	}
 
 	// for short links, get the full links
-	if ( count( $arrShortLinks ) ) {
+	if ( isset( $arrShortLinks ) && count( $arrShortLinks ) ) {
 		foreach ( $arrShortLinks as $strShortCode ) {
 
 			// get full URL
@@ -74,17 +85,25 @@ function checkLinks() {
 function searchLink() {
 
 		$strLink = stripAffiliateId( $_REQUEST['strLink'] );
-			
+		
+		// download the first 100kb of page content 
 		$strHtml = file_get_contents( 'http://' . $strLink, false, null, -1, 100000 );
 
 		$strPattern = '/canonical" href="http:\/\/(.*)\/(.*)\/dp\/([A-Z0-9]{10})/';
+
 		preg_match( $strPattern, $strHtml, $arrMatches );
+
+		// if not in the first 100k, look further
+		if (!count($arrMatches)) {
+			$strHtml = file_get_contents( 'http://' . $strLink, false, null, -1, 150000 );
+			preg_match( $strPattern, $strHtml, $arrMatches );
+		}
+
 		$strTitle = str_replace(  '-', '%20', $arrMatches[2] );
 
 		// the canonical ASIN is sometimes different to the original one which confuses the JS, so use the one in the original link
 		$strPattern2 = '/\/([A-Z0-9]{10})/';
 		preg_match( $strPattern2 , $_REQUEST['strLink'], $arrUrlMatches );
-
 		$strAsin = is_array( $arrUrlMatches ) ? $arrUrlMatches[1] : $arrMatches[3];
 
 		// is this from a shortlink?
