@@ -65,7 +65,7 @@ function linkAmazon(objLink, strAsin) {
         }
     };
     this.getAffiliateUrl = function() {
-        return "http://www.amazon." + strTld + "/exec/obidos/ASIN/" + this.strAsin + "/" + strAffiliateId
+        return "http://www.amazon." + strTld + "/exec/obidos/ASIN/" + this.strAsin + "/" + strAffiliateId;
     };
     this.localiseLink = function() {
         for (i = 0; i < this.arrLinkObjects.length; i++) {
@@ -80,7 +80,7 @@ function linkAmazon(objLink, strAsin) {
 }
 
 function findLocation() {
-    if (typeof google != "undefined" && google.loader.ClientLocation != null) {
+    if (typeof google != "undefined" && google.loader.ClientLocation !== null) {
         var strCountry = google.loader.ClientLocation.address.country_code;
         checkAmazonLinks(strCountry);
     } else {
@@ -116,7 +116,7 @@ function checkAmazonLinks(strCountry) {
                 strTld = 'in';
                 break;
             default:
-                strTld = (arrAffiliates[strCountry.toLowerCase()] != null ? strCountry.toLowerCase() : 'com');
+                strTld = (arrAffiliates[strCountry.toLowerCase()] !== null ? strCountry.toLowerCase() : 'com');
                 break;
         }
         strAffiliateId = getAffiliateId(strTld);
@@ -154,7 +154,7 @@ function checkAmazonLinks(strCountry) {
     if (strTld) {
         var strLinksToCheck = "";
         var strShortLinksToCheck = "";
-        for (strKey in arrLinksToCheck[0]) {
+        for (var strKey in arrLinksToCheck[0]) {
             if (arrLinksToCheck[0].hasOwnProperty(strKey) && typeof arrLinksToCheck[0][strKey].strAsin != "undefined") {
                 strLinksToCheck += arrLinksToCheck[0][strKey].strAsin + "|";
             }
